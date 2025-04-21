@@ -1,13 +1,13 @@
 
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cuestionario Vocacional</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cuestionario Vocacional</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
     body {
@@ -127,316 +127,417 @@
         width: auto;
       }
     }
-  </style>
+  
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+    th, td {
+      padding: 0.4rem;
+      text-align: center;
+      border: 1px solid #333;
+    }
+    th {
+      background-color: #2F2F35;
+    }
+    
+#progressContainer {
+  background-color: #2A2A2D;
+  border-radius: 8px;
+  height: 8px;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+#progressBar {
+  height: 100%;
+  width: 0%;
+  background-color: #4ECDC4;
+  transition: width 0.3s ease-in-out;
+}
+.btn-next {
+  background-color: #4ECDC4;
+}
+.btn-prev {
+  background-color: #444;
+}
+.btn-prev:hover {
+  background-color: #666;
+}
 
+</style>
 </head>
 <body>
-  <div class="container">
-    <h1>Cuestionario Vocacional</h1>
-    <p>¿No sabés qué estudiar? Este cuestionario está diseñado para ayudarte a conocerte mejor, descubrir tus intereses y elegir una formación que te abra puertas en Argentina y en España. Tomate tu tiempo, respondé con sinceridad, y descubrí posibilidades que quizás no habías considerado.</p>
-    <form id="formularioVocacional">
+<div class="container">
+<h1>Cuestionario Vocacional</h1>
+<p>¿No sabés qué estudiar? Este cuestionario está diseñado para ayudarte a conocerte mejor, descubrir tus intereses y elegir una formación que te abra puertas en Argentina y en España. Tomate tu tiempo, respondé con sinceridad, y descubrí posibilidades que quizás no habías considerado.</p>
+<div id="progressContainer">
+<div id="progressBar"></div>
+</div>
+<button id="autocompletarBtn" style="margin-bottom: 1.5rem;" type="button">🧪 Rellenar con datos de prueba</button>
+<form id="formularioVocacional">
 <label for="participantName">Nombre y apellido</label>
-<input type="text" id="participantName" name="participantName" placeholder="Ej: Martina Gómez" required />
+<input id="participantName" name="participantName" placeholder="Ej: Martina Gómez" required="" type="text"/>
 <div class="step active" data-step="1">
+<h3>🔢 Interés por áreas temáticas (1 = Nada, 5 = Muchísimo)</h3>
+<table>
+<thead>
+<tr><th>Aspecto</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+</thead>
+<tbody>
+<tr><td>Psicología y relaciones humanas</td><td><input name="area_psicologia" type="radio" value="1"/></td><td><input name="area_psicologia" type="radio" value="2"/></td><td><input name="area_psicologia" type="radio" value="3"/></td><td><input name="area_psicologia" type="radio" value="4"/></td><td><input name="area_psicologia" type="radio" value="5"/></td></tr>
+<tr><td>Tecnología y computación</td><td><input name="area_tecnologia" type="radio" value="1"/></td><td><input name="area_tecnologia" type="radio" value="2"/></td><td><input name="area_tecnologia" type="radio" value="3"/></td><td><input name="area_tecnologia" type="radio" value="4"/></td><td><input name="area_tecnologia" type="radio" value="5"/></td></tr>
+<tr><td>Educación y enseñanza</td><td><input name="area_educacion" type="radio" value="1"/></td><td><input name="area_educacion" type="radio" value="2"/></td><td><input name="area_educacion" type="radio" value="3"/></td><td><input name="area_educacion" type="radio" value="4"/></td><td><input name="area_educacion" type="radio" value="5"/></td></tr>
+<tr><td>Arte, diseño y creatividad</td><td><input name="area_arte" type="radio" value="1"/></td><td><input name="area_arte" type="radio" value="2"/></td><td><input name="area_arte" type="radio" value="3"/></td><td><input name="area_arte" type="radio" value="4"/></td><td><input name="area_arte" type="radio" value="5"/></td></tr>
+<tr><td>Salud, bienestar y deporte</td><td><input name="area_salud" type="radio" value="1"/></td><td><input name="area_salud" type="radio" value="2"/></td><td><input name="area_salud" type="radio" value="3"/></td><td><input name="area_salud" type="radio" value="4"/></td><td><input name="area_salud" type="radio" value="5"/></td></tr>
+<tr><td>Medioambiente y sostenibilidad</td><td><input name="area_medioambiente" type="radio" value="1"/></td><td><input name="area_medioambiente" type="radio" value="2"/></td><td><input name="area_medioambiente" type="radio" value="3"/></td><td><input name="area_medioambiente" type="radio" value="4"/></td><td><input name="area_medioambiente" type="radio" value="5"/></td></tr>
+<tr><td>Comunicación, marketing o redes sociales</td><td><input name="area_comunicacion" type="radio" value="1"/></td><td><input name="area_comunicacion" type="radio" value="2"/></td><td><input name="area_comunicacion" type="radio" value="3"/></td><td><input name="area_comunicacion" type="radio" value="4"/></td><td><input name="area_comunicacion" type="radio" value="5"/></td></tr>
+<tr><td>Finanzas, administración o negocios</td><td><input name="area_negocios" type="radio" value="1"/></td><td><input name="area_negocios" type="radio" value="2"/></td><td><input name="area_negocios" type="radio" value="3"/></td><td><input name="area_negocios" type="radio" value="4"/></td><td><input name="area_negocios" type="radio" value="5"/></td></tr>
+<tr><td>Manualidades y oficios técnicos</td><td><input name="area_oficios" type="radio" value="1"/></td><td><input name="area_oficios" type="radio" value="2"/></td><td><input name="area_oficios" type="radio" value="3"/></td><td><input name="area_oficios" type="radio" value="4"/></td><td><input name="area_oficios" type="radio" value="5"/></td></tr>
+<tr><td>Atención al público y servicio</td><td><input name="area_servicio" type="radio" value="1"/></td><td><input name="area_servicio" type="radio" value="2"/></td><td><input name="area_servicio" type="radio" value="3"/></td><td><input name="area_servicio" type="radio" value="4"/></td><td><input name="area_servicio" type="radio" value="5"/></td></tr>
+</tbody>
+</table>
 <h2>🌟 1. Intereses personales</h2>
 <p>Esta sección busca conocer qué temas, actividades y entornos te entusiasman, ya que los intereses personales suelen estar muy relacionados con la elección de estudios y el desarrollo profesional satisfactorio.</p>
 <label for="🌟_1._Intereses_personales_1">¿Qué actividades disfrutas hacer en tu tiempo libre?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Últimamente paso mucho tiempo viendo series o escuchando música porque me ayuda a desconectar un poco. También me gusta salir a caminar o ir a tomar algo con mis amigas. A veces leo, pero solo si el tema me engancha. Siento que me gustan muchas cosas pero no termino de enfocarme en ninguna en particular.</div>
-<textarea id="🌟_1._Intereses_personales_1" name="🌟_1._Intereses_personales_1" rows="3" required></textarea>
+<textarea data-pregunta="¿Qué actividades disfrutas hacer en tu tiempo libre?" id="🌟_1._Intereses_personales_1" name="🌟_1._Intereses_personales_1" required="" rows="3"></textarea>
 <label for="🌟_1._Intereses_personales_2">Si tuvieras un día libre sin obligaciones, ¿cómo lo pasarías?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Creo que aprovecharía para descansar, dormir un poco más, y después haría algo tranquilo como mirar una serie, salir a pasear sola o ir a algún café con mi cuaderno para escribir ideas. Me gusta la idea de tener tiempo sin presiones, sin que nadie me diga qué hacer.</div>
-<textarea id="🌟_1._Intereses_personales_2" name="🌟_1._Intereses_personales_2" rows="3" required></textarea>
+<textarea data-pregunta="Si tuvieras un día libre sin obligaciones, ¿cómo lo pasarías?" id="🌟_1._Intereses_personales_2" name="🌟_1._Intereses_personales_2" required="" rows="3"></textarea>
 <label for="🌟_1._Intereses_personales_3">¿Qué temas o disciplinas despiertan tu curiosidad natural?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Me llaman la atención muchos temas, pero no sé si lo suficiente como para dedicarme a ellos. A veces me cuelgo viendo videos sobre psicología, otras sobre diseño de interiores o sobre astrología, que me entretiene mucho. También me interesa el comportamiento humano y por qué la gente actúa como actúa.</div>
-<textarea id="🌟_1._Intereses_personales_3" name="🌟_1._Intereses_personales_3" rows="3" required></textarea>
+<textarea data-pregunta="¿Qué temas o disciplinas despiertan tu curiosidad natural?" id="🌟_1._Intereses_personales_3" name="🌟_1._Intereses_personales_3" required="" rows="3"></textarea>
 <label for="🌟_1._Intereses_personales_4">¿Qué tipo de contenido disfrutas consumir (libros, videos, redes)?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Consumo mucho contenido en Instagram y TikTok, sobre todo de lifestyle, decoración, salud mental o frases motivacionales. Me encanta ver cómo vive la gente en otros países. También sigo cuentas de organización personal y minimalismo. En YouTube veo entrevistas y documentales cortos, pero no tan seguido.</div>
-<textarea id="🌟_1._Intereses_personales_4" name="🌟_1._Intereses_personales_4" rows="3" required></textarea>
+<textarea data-pregunta="¿Qué tipo de contenido disfrutas consumir (libros, videos, redes)?" id="🌟_1._Intereses_personales_4" name="🌟_1._Intereses_personales_4" required="" rows="3"></textarea>
 <label for="🌟_1._Intereses_personales_5">¿Qué actividades te gustaría probar si tuvieras el tiempo o los recursos?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Me encantaría hacer un curso de cerámica o aprender algo artístico, como fotografía o acuarela. También me gustaría viajar sola alguna vez o hacer voluntariados. Siento que necesito experimentar cosas distintas para descubrir qué me gusta de verdad.</div>
-<textarea id="🌟_1._Intereses_personales_5" name="🌟_1._Intereses_personales_5" rows="3" required></textarea>
+<textarea data-pregunta="¿Qué actividades te gustaría probar si tuvieras el tiempo o los recursos?" id="🌟_1._Intereses_personales_5" name="🌟_1._Intereses_personales_5" required="" rows="3"></textarea>
 </div>
 <div class="step" data-step="2">
 <h2>🚀 2. Habilidades y talentos naturales</h2>
 <p>Este bloque te ayudará a identificar tus fortalezas, tanto naturales como adquiridas, para orientarte hacia formaciones y profesiones donde puedas destacar.</p>
 <label for="🚀_2._Habilidades_y_talentos_naturales_1">¿Qué actividades realizas con facilidad que a otros les cuestan más?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Me doy cuenta de que suelo organizar cosas sin pensarlo mucho, desde salidas hasta tareas del hogar. Me resulta natural planificar, hacer listas, acomodar tiempos. Muchas veces mis amigas me dicen que soy como la que siempre tiene todo bajo control, aunque para mí es algo que hago sin pensar demasiado.</div>
-<textarea id="🚀_2._Habilidades_y_talentos_naturales_1" name="🚀_2._Habilidades_y_talentos_naturales_1" rows="3" required></textarea>
+<textarea data-pregunta="¿Qué actividades realizas con facilidad que a otros les cuestan más?" id="🚀_2._Habilidades_y_talentos_naturales_1" name="🚀_2._Habilidades_y_talentos_naturales_1" required="" rows="3"></textarea>
 <label for="🚀_2._Habilidades_y_talentos_naturales_2">¿Qué tareas te generan satisfacción al completarlas?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Me gusta mucho cuando termino algo que requiere concentración, como ordenar un espacio o resolver un problema concreto. No importa si es algo chico como acomodar una estantería o ayudar a alguien con un trámite, siento que hice algo útil y eso me deja tranquila.</div>
-<textarea id="🚀_2._Habilidades_y_talentos_naturales_2" name="🚀_2._Habilidades_y_talentos_naturales_2" rows="3" required></textarea>
+<textarea data-pregunta="¿Qué tareas te generan satisfacción al completarlas?" id="🚀_2._Habilidades_y_talentos_naturales_2" name="🚀_2._Habilidades_y_talentos_naturales_2" required="" rows="3"></textarea>
 <label for="🚀_2._Habilidades_y_talentos_naturales_3">¿Qué habilidades te gustaría desarrollar más a fondo?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Me interesa aprender a comunicarme mejor, sobre todo cuando se trata de hablar en público o expresar mis ideas con claridad. A veces siento que tengo cosas para decir pero no encuentro la forma o el momento. También me gustaría aprender más herramientas digitales porque siento que me estoy quedando atrás.</div>
-<textarea id="🚀_2._Habilidades_y_talentos_naturales_3" name="🚀_2._Habilidades_y_talentos_naturales_3" rows="3" required></textarea>
+<textarea data-pregunta="¿Qué habilidades te gustaría desarrollar más a fondo?" id="🚀_2._Habilidades_y_talentos_naturales_3" name="🚀_2._Habilidades_y_talentos_naturales_3" required="" rows="3"></textarea>
 <label for="🚀_2._Habilidades_y_talentos_naturales_4">¿Qué talentos dicen los demás que tienes?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Varias personas me han dicho que tengo mucha paciencia y que soy buena escuchando. Me suelen contar cosas personales, incluso gente que no conozco tanto. A veces me impresiona que confíen así en mí. También me dicen que soy creativa aunque a veces yo no me lo termino de creer.</div>
-<textarea id="🚀_2._Habilidades_y_talentos_naturales_4" name="🚀_2._Habilidades_y_talentos_naturales_4" rows="3" required></textarea>
+<textarea data-pregunta="¿Qué talentos dicen los demás que tienes?" id="🚀_2._Habilidades_y_talentos_naturales_4" name="🚀_2._Habilidades_y_talentos_naturales_4" required="" rows="3"></textarea>
 <label for="🚀_2._Habilidades_y_talentos_naturales_5">¿En qué situaciones has demostrado iniciativa o liderazgo?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: En mi grupo de amigas soy la que organiza los viajes o los encuentros. También en un trabajo que tuve, terminé siendo la que armaba los turnos y proponía ideas para mejorar cómo hacíamos ciertas cosas. No sé si me siento una líder, pero sí me doy cuenta que me gusta que las cosas salgan bien y eso me mueve a actuar.</div>
-<textarea id="🚀_2._Habilidades_y_talentos_naturales_5" name="🚀_2._Habilidades_y_talentos_naturales_5" rows="3" required></textarea>
+<textarea data-pregunta="¿En qué situaciones has demostrado iniciativa o liderazgo?" id="🚀_2._Habilidades_y_talentos_naturales_5" name="🚀_2._Habilidades_y_talentos_naturales_5" required="" rows="3"></textarea>
 </div>
 <div class="step" data-step="3">
+<h3>🔢 Preferencias laborales (1 = Nada, 5 = Muchísimo)</h3>
+<table>
+<tr><th>Aspecto</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+<tr><td>Trabajo en equipo</td><td><input name="pref_equipo" type="radio" value="1"/></td><td><input name="pref_equipo" type="radio" value="2"/></td><td><input name="pref_equipo" type="radio" value="3"/></td><td><input name="pref_equipo" type="radio" value="4"/></td><td><input name="pref_equipo" type="radio" value="5"/></td></tr>
+<tr><td>Tareas prácticas y manuales</td><td><input name="pref_manual" type="radio" value="1"/></td><td><input name="pref_manual" type="radio" value="2"/></td><td><input name="pref_manual" type="radio" value="3"/></td><td><input name="pref_manual" type="radio" value="4"/></td><td><input name="pref_manual" type="radio" value="5"/></td></tr>
+<tr><td>Ambientes laborales estructurados</td><td><input name="pref_estructura" type="radio" value="1"/></td><td><input name="pref_estructura" type="radio" value="2"/></td><td><input name="pref_estructura" type="radio" value="3"/></td><td><input name="pref_estructura" type="radio" value="4"/></td><td><input name="pref_estructura" type="radio" value="5"/></td></tr>
+<tr><td>Trabajo creativo</td><td><input name="pref_creativo" type="radio" value="1"/></td><td><input name="pref_creativo" type="radio" value="2"/></td><td><input name="pref_creativo" type="radio" value="3"/></td><td><input name="pref_creativo" type="radio" value="4"/></td><td><input name="pref_creativo" type="radio" value="5"/></td></tr>
+<tr><td>Roles de liderazgo</td><td><input name="pref_liderazgo" type="radio" value="1"/></td><td><input name="pref_liderazgo" type="radio" value="2"/></td><td><input name="pref_liderazgo" type="radio" value="3"/></td><td><input name="pref_liderazgo" type="radio" value="4"/></td><td><input name="pref_liderazgo" type="radio" value="5"/></td></tr>
+<tr><td>Trabajo desde casa</td><td><input name="pref_remoto" type="radio" value="1"/></td><td><input name="pref_remoto" type="radio" value="2"/></td><td><input name="pref_remoto" type="radio" value="3"/></td><td><input name="pref_remoto" type="radio" value="4"/></td><td><input name="pref_remoto" type="radio" value="5"/></td></tr>
+<tr><td>Comunicación constante con otros</td><td><input name="pref_comunicacion" type="radio" value="1"/></td><td><input name="pref_comunicacion" type="radio" value="2"/></td><td><input name="pref_comunicacion" type="radio" value="3"/></td><td><input name="pref_comunicacion" type="radio" value="4"/></td><td><input name="pref_comunicacion" type="radio" value="5"/></td></tr>
+<tr><td>Tareas administrativas o repetitivas</td><td><input name="pref_rutina" type="radio" value="1"/></td><td><input name="pref_rutina" type="radio" value="2"/></td><td><input name="pref_rutina" type="radio" value="3"/></td><td><input name="pref_rutina" type="radio" value="4"/></td><td><input name="pref_rutina" type="radio" value="5"/></td></tr>
+<tr><td>Flexibilidad horaria</td><td><input name="pref_flexibilidad" type="radio" value="1"/></td><td><input name="pref_flexibilidad" type="radio" value="2"/></td><td><input name="pref_flexibilidad" type="radio" value="3"/></td><td><input name="pref_flexibilidad" type="radio" value="4"/></td><td><input name="pref_flexibilidad" type="radio" value="5"/></td></tr>
+<tr><td>Aprendizaje continuo</td><td><input name="pref_aprendizaje" type="radio" value="1"/></td><td><input name="pref_aprendizaje" type="radio" value="2"/></td><td><input name="pref_aprendizaje" type="radio" value="3"/></td><td><input name="pref_aprendizaje" type="radio" value="4"/></td><td><input name="pref_aprendizaje" type="radio" value="5"/></td></tr>
+</table>
+<h3>🔢 Preferencias laborales</h3>
+<p>Indica de 1 a 5 cuánto te identificás con cada uno de estos aspectos laborales:</p>
 <h2>🌱 3. Perfil de personalidad y preferencias laborales</h2>
 <p>Aquí buscamos identificar cómo te sentís más cómoda trabajando y qué estilo de entorno laboral preferís.</p>
 <label for="🌱_3._Perfil_de_personalidad_y_preferencias_laborales_1">¿Preferís tareas estructuradas o con libertad creativa?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Me gusta tener cierta estructura porque me ayuda a organizarme, pero también valoro que me den la libertad de hacer las cosas a mi manera. Siento que si todo está demasiado rígido me bloqueo, pero si es demasiado abierto también me pierdo. Necesito un equilibrio.</div>
-<textarea id="🌱_3._Perfil_de_personalidad_y_preferencias_laborales_1" name="🌱_3._Perfil_de_personalidad_y_preferencias_laborales_1" rows="3" required></textarea>
+<textarea data-pregunta="¿Preferís tareas estructuradas o con libertad creativa?" id="🌱_3._Perfil_de_personalidad_y_preferencias_laborales_1" name="🌱_3._Perfil_de_personalidad_y_preferencias_laborales_1" required="" rows="3"></textarea>
 <label for="🌱_3._Perfil_de_personalidad_y_preferencias_laborales_2">¿Cómo te sentís al trabajar bajo presión?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: No me gusta, la verdad. Me cuesta mantener la concentración cuando siento que hay mucho en juego o que estoy siendo observada. Intento organizarme para no llegar a ese punto, pero a veces me frustro si algo se me va de las manos.</div>
-<textarea id="🌱_3._Perfil_de_personalidad_y_preferencias_laborales_2" name="🌱_3._Perfil_de_personalidad_y_preferencias_laborales_2" rows="3" required></textarea>
+<textarea data-pregunta="¿Cómo te sentís al trabajar bajo presión?" id="🌱_3._Perfil_de_personalidad_y_preferencias_laborales_2" name="🌱_3._Perfil_de_personalidad_y_preferencias_laborales_2" required="" rows="3"></textarea>
 <label for="🌱_3._Perfil_de_personalidad_y_preferencias_laborales_3">¿Qué rol preferís en un equipo de trabajo?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: No suelo ser la líder, pero sí me gusta aportar ideas y estar atenta a lo que el grupo necesita. A veces me encargo de que todos estén cómodos o de mediar cuando hay tensiones.</div>
-<textarea id="🌱_3._Perfil_de_personalidad_y_preferencias_laborales_3" name="🌱_3._Perfil_de_personalidad_y_preferencias_laborales_3" rows="3" required></textarea>
+<textarea data-pregunta="¿Qué rol preferís en un equipo de trabajo?" id="🌱_3._Perfil_de_personalidad_y_preferencias_laborales_3" name="🌱_3._Perfil_de_personalidad_y_preferencias_laborales_3" required="" rows="3"></textarea>
 <label for="🌱_3._Perfil_de_personalidad_y_preferencias_laborales_4">¿Qué tipo de decisiones disfrutás tomar?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Me gusta decidir sobre cuestiones prácticas, como cómo distribuir tareas o cómo mejorar algo que no está funcionando. Pero me cuesta más tomar decisiones grandes o que impliquen riesgos.</div>
-<textarea id="🌱_3._Perfil_de_personalidad_y_preferencias_laborales_4" name="🌱_3._Perfil_de_personalidad_y_preferencias_laborales_4" rows="3" required></textarea>
+<textarea data-pregunta="¿Qué tipo de decisiones disfrutás tomar?" id="🌱_3._Perfil_de_personalidad_y_preferencias_laborales_4" name="🌱_3._Perfil_de_personalidad_y_preferencias_laborales_4" required="" rows="3"></textarea>
 <label for="🌱_3._Perfil_de_personalidad_y_preferencias_laborales_5">¿Qué valorás más: estabilidad o flexibilidad?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Antes decía que quería estabilidad, pero ahora me doy cuenta de que necesito un poco de flexibilidad para no sentirme encerrada. Creo que lo ideal sería un trabajo que me dé cierta seguridad pero que no sea siempre igual.</div>
-<textarea id="🌱_3._Perfil_de_personalidad_y_preferencias_laborales_5" name="🌱_3._Perfil_de_personalidad_y_preferencias_laborales_5" rows="3" required></textarea>
+<textarea data-pregunta="¿Qué valorás más: estabilidad o flexibilidad?" id="🌱_3._Perfil_de_personalidad_y_preferencias_laborales_5" name="🌱_3._Perfil_de_personalidad_y_preferencias_laborales_5" required="" rows="3"></textarea>
 </div>
 <div class="step" data-step="4">
 <h2>💡 4. Valores y motivaciones personales</h2>
 <p>En esta sección identificaremos tus prioridades personales y lo que te motiva a nivel profesional.</p>
 <label for="💡_4._Valores_y_motivaciones_personales_1">¿Qué es lo más importante para vos en un trabajo?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Que me sienta valorada, que lo que hago tenga sentido y que no sea solo cumplir con horarios. No quiero un trabajo solo por el sueldo, aunque sé que es necesario. Pero me cuesta comprometerme si siento que lo que hago no sirve para nada.</div>
-<textarea id="💡_4._Valores_y_motivaciones_personales_1" name="💡_4._Valores_y_motivaciones_personales_1" rows="3" required></textarea>
+<textarea data-pregunta="¿Qué es lo más importante para vos en un trabajo?" id="💡_4._Valores_y_motivaciones_personales_1" name="💡_4._Valores_y_motivaciones_personales_1" required="" rows="3"></textarea>
 <label for="💡_4._Valores_y_motivaciones_personales_2">¿Qué tipo de reconocimiento valorás más?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Prefiero que me lo digan con palabras o que me demuestren que confían en mí. No necesito premios ni nada público, pero sí saber que lo que hago es tenido en cuenta.</div>
-<textarea id="💡_4._Valores_y_motivaciones_personales_2" name="💡_4._Valores_y_motivaciones_personales_2" rows="3" required></textarea>
+<textarea data-pregunta="¿Qué tipo de reconocimiento valorás más?" id="💡_4._Valores_y_motivaciones_personales_2" name="💡_4._Valores_y_motivaciones_personales_2" required="" rows="3"></textarea>
 <label for="💡_4._Valores_y_motivaciones_personales_3">¿Cuál es tu principal motivación para estudiar o trabajar?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Sentirme más segura de mí misma. Siento que necesito lograr algo propio, algo que me permita dejar de dudar todo el tiempo sobre lo que soy capaz de hacer.</div>
-<textarea id="💡_4._Valores_y_motivaciones_personales_3" name="💡_4._Valores_y_motivaciones_personales_3" rows="3" required></textarea>
+<textarea data-pregunta="¿Cuál es tu principal motivación para estudiar o trabajar?" id="💡_4._Valores_y_motivaciones_personales_3" name="💡_4._Valores_y_motivaciones_personales_3" required="" rows="3"></textarea>
 <label for="💡_4._Valores_y_motivaciones_personales_4">¿Qué tipo de impacto quisieras generar con tu trabajo?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Me gustaría ayudar a otras personas a estar mejor, aunque sea desde algo pequeño. No necesariamente en algo social o de salud, pero sí que lo que haga tenga una consecuencia positiva en la vida de alguien.</div>
-<textarea id="💡_4._Valores_y_motivaciones_personales_4" name="💡_4._Valores_y_motivaciones_personales_4" rows="3" required></textarea>
+<textarea data-pregunta="¿Qué tipo de impacto quisieras generar con tu trabajo?" id="💡_4._Valores_y_motivaciones_personales_4" name="💡_4._Valores_y_motivaciones_personales_4" required="" rows="3"></textarea>
 <label for="💡_4._Valores_y_motivaciones_personales_5">¿Qué valores personales te gustaría reflejar en tu actividad profesional?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Honestidad, empatía y responsabilidad. Me gustaría poder trabajar de algo donde no tenga que actuar o fingir, donde pueda ser yo misma y sentir que eso está bien.</div>
-<textarea id="💡_4._Valores_y_motivaciones_personales_5" name="💡_4._Valores_y_motivaciones_personales_5" rows="3" required></textarea>
+<textarea data-pregunta="¿Qué valores personales te gustaría reflejar en tu actividad profesional?" id="💡_4._Valores_y_motivaciones_personales_5" name="💡_4._Valores_y_motivaciones_personales_5" required="" rows="3"></textarea>
 </div>
 <div class="step" data-step="5">
 <h2>🎯 5. Objetivos a largo plazo</h2>
 <p>Reflexionar sobre cómo te ves en el futuro nos ayudará a elegir un camino formativo alineado a tu visión profesional.</p>
 <label for="🎯_5._Objetivos_a_largo_plazo_1">¿Dónde te gustaría estar profesionalmente dentro de 5 a 10 años?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Trabajando en el área de salud mental, con un trabajo estable y reconocido.</div>
-<textarea id="🎯_5._Objetivos_a_largo_plazo_1" name="🎯_5._Objetivos_a_largo_plazo_1" rows="3" required></textarea>
+<textarea data-pregunta="¿Dónde te gustaría estar profesionalmente dentro de 5 a 10 años?" id="🎯_5._Objetivos_a_largo_plazo_1" name="🎯_5._Objetivos_a_largo_plazo_1" required="" rows="3"></textarea>
 <label for="🎯_5._Objetivos_a_largo_plazo_2">¿Te gustaría trabajar por cuenta propia o en relación de dependencia?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Empezar trabajando en relación de dependencia y luego emprender.</div>
-<textarea id="🎯_5._Objetivos_a_largo_plazo_2" name="🎯_5._Objetivos_a_largo_plazo_2" rows="3" required></textarea>
+<textarea data-pregunta="¿Te gustaría trabajar por cuenta propia o en relación de dependencia?" id="🎯_5._Objetivos_a_largo_plazo_2" name="🎯_5._Objetivos_a_largo_plazo_2" required="" rows="3"></textarea>
 <label for="🎯_5._Objetivos_a_largo_plazo_3">¿Qué tipo de entorno laboral imaginas en tu futuro ideal?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Un espacio colaborativo, con personas con intereses similares.</div>
-<textarea id="🎯_5._Objetivos_a_largo_plazo_3" name="🎯_5._Objetivos_a_largo_plazo_3" rows="3" required></textarea>
+<textarea data-pregunta="¿Qué tipo de entorno laboral imaginas en tu futuro ideal?" id="🎯_5._Objetivos_a_largo_plazo_3" name="🎯_5._Objetivos_a_largo_plazo_3" required="" rows="3"></textarea>
 <label for="🎯_5._Objetivos_a_largo_plazo_4">¿Qué logros personales y profesionales querrías alcanzar?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Tener un título reconocido en España y formar una red de contactos en mi área.</div>
-<textarea id="🎯_5._Objetivos_a_largo_plazo_4" name="🎯_5._Objetivos_a_largo_plazo_4" rows="3" required></textarea>
+<textarea data-pregunta="¿Qué logros personales y profesionales querrías alcanzar?" id="🎯_5._Objetivos_a_largo_plazo_4" name="🎯_5._Objetivos_a_largo_plazo_4" required="" rows="3"></textarea>
 <label for="🎯_5._Objetivos_a_largo_plazo_5">¿Cómo visualizas el equilibrio entre tu vida laboral y personal en el futuro?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Tener un trabajo con horario fijo que me permita tiempo libre para mi familia y hobbies.</div>
-<textarea id="🎯_5._Objetivos_a_largo_plazo_5" name="🎯_5._Objetivos_a_largo_plazo_5" rows="3" required></textarea>
+<textarea data-pregunta="¿Cómo visualizas el equilibrio entre tu vida laboral y personal en el futuro?" id="🎯_5._Objetivos_a_largo_plazo_5" name="🎯_5._Objetivos_a_largo_plazo_5" required="" rows="3"></textarea>
 </div>
 <div class="step" data-step="6">
 <h2>🕑 6. Limitaciones y factores personales específicos</h2>
 <p>Esta sección tiene en cuenta tu disponibilidad, recursos y contexto actual para que la formación recomendada sea viable.</p>
 <label for="🕑_6._Limitaciones_y_factores_personales_específicos_1">¿Cuántas horas por semana puedes dedicar al estudio?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Entre 15 y 20 horas dependiendo del trabajo.</div>
-<textarea id="🕑_6._Limitaciones_y_factores_personales_específicos_1" name="🕑_6._Limitaciones_y_factores_personales_específicos_1" rows="3" required></textarea>
+<textarea data-pregunta="¿Cuántas horas por semana puedes dedicar al estudio?" id="🕑_6._Limitaciones_y_factores_personales_específicos_1" name="🕑_6._Limitaciones_y_factores_personales_específicos_1" required="" rows="3"></textarea>
 <label for="🕑_6._Limitaciones_y_factores_personales_específicos_2">¿Tienes acceso confiable a internet y dispositivos para estudiar online?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Sí, tengo computadora portátil y buena conexión en casa.</div>
-<textarea id="🕑_6._Limitaciones_y_factores_personales_específicos_2" name="🕑_6._Limitaciones_y_factores_personales_específicos_2" rows="3" required></textarea>
+<textarea data-pregunta="¿Tienes acceso confiable a internet y dispositivos para estudiar online?" id="🕑_6._Limitaciones_y_factores_personales_específicos_2" name="🕑_6._Limitaciones_y_factores_personales_específicos_2" required="" rows="3"></textarea>
 <label for="🕑_6._Limitaciones_y_factores_personales_específicos_3">¿Cuál es tu presupuesto mensual aproximado para formación?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Hasta 25.000 pesos mensuales.</div>
-<textarea id="🕑_6._Limitaciones_y_factores_personales_específicos_3" name="🕑_6._Limitaciones_y_factores_personales_específicos_3" rows="3" required></textarea>
+<textarea data-pregunta="¿Cuál es tu presupuesto mensual aproximado para formación?" id="🕑_6._Limitaciones_y_factores_personales_específicos_3" name="🕑_6._Limitaciones_y_factores_personales_específicos_3" required="" rows="3"></textarea>
 <label for="🕑_6._Limitaciones_y_factores_personales_específicos_4">¿Tienes responsabilidades familiares que limiten tus tiempos?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Sí, cuido a mi hermana menor por las tardes.</div>
-<textarea id="🕑_6._Limitaciones_y_factores_personales_específicos_4" name="🕑_6._Limitaciones_y_factores_personales_específicos_4" rows="3" required></textarea>
+<textarea data-pregunta="¿Tienes responsabilidades familiares que limiten tus tiempos?" id="🕑_6._Limitaciones_y_factores_personales_específicos_4" name="🕑_6._Limitaciones_y_factores_personales_específicos_4" required="" rows="3"></textarea>
 <label for="🕑_6._Limitaciones_y_factores_personales_específicos_5">¿Preferís una modalidad de estudio presencial, online o híbrida?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Prefiero híbrida, me gusta la flexibilidad del online pero valoro la presencialidad.</div>
-<textarea id="🕑_6._Limitaciones_y_factores_personales_específicos_5" name="🕑_6._Limitaciones_y_factores_personales_específicos_5" rows="3" required></textarea>
+<textarea data-pregunta="¿Preferís una modalidad de estudio presencial, online o híbrida?" id="🕑_6._Limitaciones_y_factores_personales_específicos_5" name="🕑_6._Limitaciones_y_factores_personales_específicos_5" required="" rows="3"></textarea>
 </div>
 <div class="step" data-step="7">
+<h3>🔢 Interés por sectores laborales (1 = Nada, 5 = Muchísimo)</h3>
+<table>
+<tr><th>Sector</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+<tr><td>Salud y asistencia</td><td><input name="sector_salud" type="radio" value="1"/></td><td><input name="sector_salud" type="radio" value="2"/></td><td><input name="sector_salud" type="radio" value="3"/></td><td><input name="sector_salud" type="radio" value="4"/></td><td><input name="sector_salud" type="radio" value="5"/></td></tr>
+<tr><td>Educación y docencia</td><td><input name="sector_educacion" type="radio" value="1"/></td><td><input name="sector_educacion" type="radio" value="2"/></td><td><input name="sector_educacion" type="radio" value="3"/></td><td><input name="sector_educacion" type="radio" value="4"/></td><td><input name="sector_educacion" type="radio" value="5"/></td></tr>
+<tr><td>Tecnología y programación</td><td><input name="sector_tecnologia" type="radio" value="1"/></td><td><input name="sector_tecnologia" type="radio" value="2"/></td><td><input name="sector_tecnologia" type="radio" value="3"/></td><td><input name="sector_tecnologia" type="radio" value="4"/></td><td><input name="sector_tecnologia" type="radio" value="5"/></td></tr>
+<tr><td>Diseño y comunicación visual</td><td><input name="sector_diseno" type="radio" value="1"/></td><td><input name="sector_diseno" type="radio" value="2"/></td><td><input name="sector_diseno" type="radio" value="3"/></td><td><input name="sector_diseno" type="radio" value="4"/></td><td><input name="sector_diseno" type="radio" value="5"/></td></tr>
+<tr><td>Marketing y redes sociales</td><td><input name="sector_marketing" type="radio" value="1"/></td><td><input name="sector_marketing" type="radio" value="2"/></td><td><input name="sector_marketing" type="radio" value="3"/></td><td><input name="sector_marketing" type="radio" value="4"/></td><td><input name="sector_marketing" type="radio" value="5"/></td></tr>
+<tr><td>Administración y finanzas</td><td><input name="sector_administracion" type="radio" value="1"/></td><td><input name="sector_administracion" type="radio" value="2"/></td><td><input name="sector_administracion" type="radio" value="3"/></td><td><input name="sector_administracion" type="radio" value="4"/></td><td><input name="sector_administracion" type="radio" value="5"/></td></tr>
+<tr><td>Servicios y atención al cliente</td><td><input name="sector_servicios" type="radio" value="1"/></td><td><input name="sector_servicios" type="radio" value="2"/></td><td><input name="sector_servicios" type="radio" value="3"/></td><td><input name="sector_servicios" type="radio" value="4"/></td><td><input name="sector_servicios" type="radio" value="5"/></td></tr>
+<tr><td>Oficios técnicos o manuales</td><td><input name="sector_oficios" type="radio" value="1"/></td><td><input name="sector_oficios" type="radio" value="2"/></td><td><input name="sector_oficios" type="radio" value="3"/></td><td><input name="sector_oficios" type="radio" value="4"/></td><td><input name="sector_oficios" type="radio" value="5"/></td></tr>
+<tr><td>Cuidado de personas mayores</td><td><input name="sector_cuidados" type="radio" value="1"/></td><td><input name="sector_cuidados" type="radio" value="2"/></td><td><input name="sector_cuidados" type="radio" value="3"/></td><td><input name="sector_cuidados" type="radio" value="4"/></td><td><input name="sector_cuidados" type="radio" value="5"/></td></tr>
+<tr><td>Emprendimiento o negocios</td><td><input name="sector_emprendimiento" type="radio" value="1"/></td><td><input name="sector_emprendimiento" type="radio" value="2"/></td><td><input name="sector_emprendimiento" type="radio" value="3"/></td><td><input name="sector_emprendimiento" type="radio" value="4"/></td><td><input name="sector_emprendimiento" type="radio" value="5"/></td></tr>
+</table>
+<h3>🔢 Interés por sectores laborales</h3>
+<p>Valorá del 1 al 5 tu interés por trabajar en estos sectores:</p>
 <h2>📈 7. Expectativas laborales y viabilidad profesional</h2>
 <p>Aquí definimos tus preferencias en el mercado laboral, tanto en Argentina como proyectando hacia España.</p>
 <label for="📈_7._Expectativas_laborales_y_viabilidad_profesional_1">¿Qué áreas laborales te resultan más atractivas?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Educación, psicología y diseño digital.</div>
-<textarea id="📈_7._Expectativas_laborales_y_viabilidad_profesional_1" name="📈_7._Expectativas_laborales_y_viabilidad_profesional_1" rows="3" required></textarea>
+<textarea data-pregunta="¿Qué áreas laborales te resultan más atractivas?" id="📈_7._Expectativas_laborales_y_viabilidad_profesional_1" name="📈_7._Expectativas_laborales_y_viabilidad_profesional_1" required="" rows="3"></textarea>
 <label for="📈_7._Expectativas_laborales_y_viabilidad_profesional_2">¿Qué tipo de tareas o funciones disfrutas más en un empleo?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Escuchar, guiar, resolver problemas creativamente.</div>
-<textarea id="📈_7._Expectativas_laborales_y_viabilidad_profesional_2" name="📈_7._Expectativas_laborales_y_viabilidad_profesional_2" rows="3" required></textarea>
+<textarea data-pregunta="¿Qué tipo de tareas o funciones disfrutas más en un empleo?" id="📈_7._Expectativas_laborales_y_viabilidad_profesional_2" name="📈_7._Expectativas_laborales_y_viabilidad_profesional_2" required="" rows="3"></textarea>
 <label for="📈_7._Expectativas_laborales_y_viabilidad_profesional_3">¿Hay sectores que preferirías evitar?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Ventas o finanzas, porque no me siento cómoda bajo presión comercial.</div>
-<textarea id="📈_7._Expectativas_laborales_y_viabilidad_profesional_3" name="📈_7._Expectativas_laborales_y_viabilidad_profesional_3" rows="3" required></textarea>
+<textarea data-pregunta="¿Hay sectores que preferirías evitar?" id="📈_7._Expectativas_laborales_y_viabilidad_profesional_3" name="📈_7._Expectativas_laborales_y_viabilidad_profesional_3" required="" rows="3"></textarea>
 <label for="📈_7._Expectativas_laborales_y_viabilidad_profesional_4">¿Te interesa más un empleo público o en empresas privadas?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Me interesan ambas, pero veo más estabilidad en el sector público.</div>
-<textarea id="📈_7._Expectativas_laborales_y_viabilidad_profesional_4" name="📈_7._Expectativas_laborales_y_viabilidad_profesional_4" rows="3" required></textarea>
+<textarea data-pregunta="¿Te interesa más un empleo público o en empresas privadas?" id="📈_7._Expectativas_laborales_y_viabilidad_profesional_4" name="📈_7._Expectativas_laborales_y_viabilidad_profesional_4" required="" rows="3"></textarea>
 <label for="📈_7._Expectativas_laborales_y_viabilidad_profesional_5">¿Qué importancia tiene el salario en tu decisión profesional?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Es importante, pero más lo es sentir que el trabajo me representa.</div>
-<textarea id="📈_7._Expectativas_laborales_y_viabilidad_profesional_5" name="📈_7._Expectativas_laborales_y_viabilidad_profesional_5" rows="3" required></textarea>
+<textarea data-pregunta="¿Qué importancia tiene el salario en tu decisión profesional?" id="📈_7._Expectativas_laborales_y_viabilidad_profesional_5" name="📈_7._Expectativas_laborales_y_viabilidad_profesional_5" required="" rows="3"></textarea>
 </div>
 <div class="step" data-step="8">
 <h2>🌍 8. Aspectos migratorios clave para España</h2>
 <p>Esta sección apunta a asegurar que lo que estudies sea útil en tu futura vida laboral en España.</p>
 <label for="🌍_8._Aspectos_migratorios_clave_para_España_1">¿Te interesa que tu formación sea fácilmente homologable en España?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Sí, para poder trabajar sin tener que hacer muchos trámites allá.</div>
-<textarea id="🌍_8._Aspectos_migratorios_clave_para_España_1" name="🌍_8._Aspectos_migratorios_clave_para_España_1" rows="3" required></textarea>
+<textarea data-pregunta="¿Te interesa que tu formación sea fácilmente homologable en España?" id="🌍_8._Aspectos_migratorios_clave_para_España_1" name="🌍_8._Aspectos_migratorios_clave_para_España_1" required="" rows="3"></textarea>
 <label for="🌍_8._Aspectos_migratorios_clave_para_España_2">¿Preferís una formación con alta salida laboral en España?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Sí, me gustaría insertarme rápido en el mercado laboral.</div>
-<textarea id="🌍_8._Aspectos_migratorios_clave_para_España_2" name="🌍_8._Aspectos_migratorios_clave_para_España_2" rows="3" required></textarea>
+<textarea data-pregunta="¿Preferís una formación con alta salida laboral en España?" id="🌍_8._Aspectos_migratorios_clave_para_España_2" name="🌍_8._Aspectos_migratorios_clave_para_España_2" required="" rows="3"></textarea>
 <label for="🌍_8._Aspectos_migratorios_clave_para_España_3">¿Estás abierta a estudiar algo regulado si implica más oportunidades?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Sí, si tiene buena salida laboral.</div>
-<textarea id="🌍_8._Aspectos_migratorios_clave_para_España_3" name="🌍_8._Aspectos_migratorios_clave_para_España_3" rows="3" required></textarea>
+<textarea data-pregunta="¿Estás abierta a estudiar algo regulado si implica más oportunidades?" id="🌍_8._Aspectos_migratorios_clave_para_España_3" name="🌍_8._Aspectos_migratorios_clave_para_España_3" required="" rows="3"></textarea>
 <label for="🌍_8._Aspectos_migratorios_clave_para_España_4">¿Te interesaría emprender en España o preferís buscar empleo?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Me gustaría trabajar primero y más adelante tener mi propio proyecto.</div>
-<textarea id="🌍_8._Aspectos_migratorios_clave_para_España_4" name="🌍_8._Aspectos_migratorios_clave_para_España_4" rows="3" required></textarea>
+<textarea data-pregunta="¿Te interesaría emprender en España o preferís buscar empleo?" id="🌍_8._Aspectos_migratorios_clave_para_España_4" name="🌍_8._Aspectos_migratorios_clave_para_España_4" required="" rows="3"></textarea>
 <label for="🌍_8._Aspectos_migratorios_clave_para_España_5">¿Estarías dispuesta a hacer cursos complementarios en España si es necesario?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Sí, si eso me ayuda a integrarme mejor y conseguir trabajo.</div>
-<textarea id="🌍_8._Aspectos_migratorios_clave_para_España_5" name="🌍_8._Aspectos_migratorios_clave_para_España_5" rows="3" required></textarea>
+<textarea data-pregunta="¿Estarías dispuesta a hacer cursos complementarios en España si es necesario?" id="🌍_8._Aspectos_migratorios_clave_para_España_5" name="🌍_8._Aspectos_migratorios_clave_para_España_5" required="" rows="3"></textarea>
 </div>
 <div class="step" data-step="9">
 <h2>📌 Espacio abierto</h2>
 <p>Aquí puedes compartir cualquier cosa que no haya sido preguntada pero consideres importante.</p>
 <label for="📌_Espacio_abierto_1">¿Hay algo adicional que quieras contar sobre tus intereses, motivaciones o contexto personal?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Me interesa mucho el desarrollo sostenible y eso influye en mis decisiones profesionales.</div>
-<textarea id="📌_Espacio_abierto_1" name="📌_Espacio_abierto_1" rows="3" required></textarea>
+<textarea data-pregunta="¿Hay algo adicional que quieras contar sobre tus intereses, motivaciones o contexto personal?" id="📌_Espacio_abierto_1" name="📌_Espacio_abierto_1" required="" rows="3"></textarea>
 </div>
 <div class="step" data-step="10">
 <h2>🧭 Preguntas adicionales recomendadas por un experto en orientación profesional</h2>
 <p>Estas preguntas adicionales están diseñadas para profundizar en aspectos que muchas veces pasan desapercibidos, pero que son claves para una buena elección profesional.</p>
 <label for="🧭_Preguntas_adicionales_recomendadas_por_un_experto_en_orientación_profesional_1">¿Qué harías si supieras que no podés fallar?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Si tuviera la certeza de que todo saldría bien, creo que me animaría a estudiar algo relacionado con la psicología o el acompañamiento a personas. Siempre me interesó, pero tengo miedo de no estar a la altura o de no encontrar trabajo después.</div>
-<textarea id="🧭_Preguntas_adicionales_recomendadas_por_un_experto_en_orientación_profesional_1" name="🧭_Preguntas_adicionales_recomendadas_por_un_experto_en_orientación_profesional_1" rows="3" required></textarea>
+<textarea data-pregunta="¿Qué harías si supieras que no podés fallar?" id="🧭_Preguntas_adicionales_recomendadas_por_un_experto_en_orientación_profesional_1" name="🧭_Preguntas_adicionales_recomendadas_por_un_experto_en_orientación_profesional_1" required="" rows="3"></textarea>
 <label for="🧭_Preguntas_adicionales_recomendadas_por_un_experto_en_orientación_profesional_2">¿Hay alguna experiencia del pasado que te haya marcado y que hoy influya en lo que querés hacer?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Cuando era más chica acompañé a mi abuela durante una enfermedad larga, y eso me hizo darme cuenta de lo importante que es el cuidado y la contención emocional. Desde entonces tengo una sensibilidad especial hacia personas mayores o en situaciones vulnerables.</div>
-<textarea id="🧭_Preguntas_adicionales_recomendadas_por_un_experto_en_orientación_profesional_2" name="🧭_Preguntas_adicionales_recomendadas_por_un_experto_en_orientación_profesional_2" rows="3" required></textarea>
+<textarea data-pregunta="¿Hay alguna experiencia del pasado que te haya marcado y que hoy influya en lo que querés hacer?" id="🧭_Preguntas_adicionales_recomendadas_por_un_experto_en_orientación_profesional_2" name="🧭_Preguntas_adicionales_recomendadas_por_un_experto_en_orientación_profesional_2" required="" rows="3"></textarea>
 <label for="🧭_Preguntas_adicionales_recomendadas_por_un_experto_en_orientación_profesional_3">¿Qué te dijeron o enseñaron sobre el trabajo en tu infancia y adolescencia?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: En mi casa siempre se valoró mucho la estabilidad. Mis padres me decían que lo más importante era tener un trabajo seguro, aunque no te guste. Creo que por eso me cuesta pensar en hacer algo distinto o más creativo, como si no fuera posible.</div>
-<textarea id="🧭_Preguntas_adicionales_recomendadas_por_un_experto_en_orientación_profesional_3" name="🧭_Preguntas_adicionales_recomendadas_por_un_experto_en_orientación_profesional_3" rows="3" required></textarea>
+<textarea data-pregunta="¿Qué te dijeron o enseñaron sobre el trabajo en tu infancia y adolescencia?" id="🧭_Preguntas_adicionales_recomendadas_por_un_experto_en_orientación_profesional_3" name="🧭_Preguntas_adicionales_recomendadas_por_un_experto_en_orientación_profesional_3" required="" rows="3"></textarea>
 <label for="🧭_Preguntas_adicionales_recomendadas_por_un_experto_en_orientación_profesional_4">¿Qué personas admirás profesionalmente y por qué?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Admiro mucho a mi prima que es terapeuta ocupacional. Siempre la vi muy comprometida con lo que hace, y aunque no tiene un trabajo 'lujoso', se nota que le apasiona. Me inspira esa forma de vivir el trabajo como una vocación y no solo como una obligación.</div>
-<textarea id="🧭_Preguntas_adicionales_recomendadas_por_un_experto_en_orientación_profesional_4" name="🧭_Preguntas_adicionales_recomendadas_por_un_experto_en_orientación_profesional_4" rows="3" required></textarea>
+<textarea data-pregunta="¿Qué personas admirás profesionalmente y por qué?" id="🧭_Preguntas_adicionales_recomendadas_por_un_experto_en_orientación_profesional_4" name="🧭_Preguntas_adicionales_recomendadas_por_un_experto_en_orientación_profesional_4" required="" rows="3"></textarea>
 <label for="🧭_Preguntas_adicionales_recomendadas_por_un_experto_en_orientación_profesional_5">¿Cómo definirías el éxito para vos?</label>
 <div class="example" style="background:#222;padding:10px;border-left:4px solid #FF6B6B;margin-bottom:10px;">Ejemplo: Para mí el éxito no tiene que ver con plata o reconocimiento, sino con levantarme cada día sintiéndome bien con lo que hago. Que no me duela el cuerpo de estrés, que tenga tiempo para mí y que pueda dormir tranquila.</div>
-<textarea id="🧭_Preguntas_adicionales_recomendadas_por_un_experto_en_orientación_profesional_5" name="🧭_Preguntas_adicionales_recomendadas_por_un_experto_en_orientación_profesional_5" rows="3" required></textarea>
+<textarea data-pregunta="¿Cómo definirías el éxito para vos?" id="🧭_Preguntas_adicionales_recomendadas_por_un_experto_en_orientación_profesional_5" name="🧭_Preguntas_adicionales_recomendadas_por_un_experto_en_orientación_profesional_5" required="" rows="3"></textarea>
 </div>
-
-<div class="step" data-step="FINAL">
-  <h2>✅ Confirmación y envío</h2>
-  <p>Has llegado al final del cuestionario. Al hacer clic en "Enviar", tus respuestas serán enviadas por correo electrónico.</p>
-  <button type="submit">Enviar</button>
-</div>
-
 <div class="buttons">
-  <button type="button" id="prevBtn" aria-label="Volver al paso anterior">⬅ Volver al paso anterior</button>
-  <button type="button" id="nextBtn" aria-label="Ir al siguiente paso">➡ Ir al siguiente paso</button>
-</div>
+<button aria-label="Volver al paso anterior" id="prevBtn" type="button">⬅ Volver al paso anterior</button>
+<button aria-label="Ir al siguiente paso" id="nextBtn" type="button">➡ Ir al siguiente paso</button>
+<button id="submitBtn" style="width: auto;" type="submit">✅ Confirmar y generar archivo</button></div>
 </form>
-  </div>
-
-  
-
-
-
-
+</div>
 <script>
-  const form = document.getElementById('formularioVocacional');
-  const steps = document.querySelectorAll('.step');
-  let currentStep = 0;
+const form = document.getElementById('formularioVocacional');
+const steps = document.querySelectorAll('.step');
+let currentStep = 0;
 
-  function showStep(index) {
-    steps.forEach((step, i) => step.classList.toggle('active', i === index));
-    document.getElementById('prevBtn').style.display = (index === 0) ? 'none' : 'inline-block';
-    document.getElementById('nextBtn').style.display = (index === steps.length - 1) ? 'none' : 'inline-block';
-    localStorage.setItem('currentStep', index);
-  }
+function showStep(index) {
+  steps.forEach((step, i) => step.classList.toggle('active', i === index));
+  document.getElementById('prevBtn').style.display = index === 0 ? 'none' : 'inline-block';
+  document.getElementById('nextBtn').style.display = index === steps.length - 1 ? 'none' : 'inline-block';
+  document.getElementById('autocompletarBtn').style.display = index === 0 ? 'inline-block' : 'none';
+  document.getElementById('submitBtn').style.display = index === steps.length - 1 ? 'inline-block' : 'none';
+  updateProgress(index);
+}
 
-  function saveAnswers() {
-    const inputs = form.querySelectorAll('textarea, input');
-    inputs.forEach(input => {
-      localStorage.setItem(input.name, input.value);
-    });
-  }
+function updateProgress(index) {
+  const progress = Math.round(((index + 1) / steps.length) * 100);
+  document.getElementById('progressBar').style.width = progress + '%';
+}
 
-  function loadAnswers() {
-    const inputs = form.querySelectorAll('textarea, input');
-    inputs.forEach(input => {
-      const saved = localStorage.getItem(input.name);
-      if (saved) input.value = saved;
-    });
-  }
-
-  function restoreStep() {
-    const step = localStorage.getItem('currentStep');
-    if (step) {
-      currentStep = parseInt(step);
+document.getElementById("nextBtn").addEventListener("click", () => {
+  const currentStepEl = steps[currentStep];
+  const radios = currentStepEl.querySelectorAll("input[type='radio']");
+  if (radios.length > 0) {
+    const grupos = new Set([...radios].map(r => r.name));
+    for (let name of grupos) {
+      const seleccionado = currentStepEl.querySelector(`input[name='${name}']:checked`);
+      if (!seleccionado) {
+        alert("Por favor, completá todas las respuestas antes de avanzar.");
+        return;
+      }
     }
+  }
+  if (currentStep < steps.length - 1) {
+    currentStep++;
     showStep(currentStep);
   }
+});
 
-  document.getElementById('nextBtn').addEventListener('click', () => {
-    if (currentStep < steps.length - 1) {
-      saveAnswers();
-      currentStep++;
-      showStep(currentStep);
-    }
+document.getElementById("prevBtn").addEventListener("click", () => {
+  if (currentStep > 0) {
+    currentStep--;
+    showStep(currentStep);
+  }
+});
+
+showStep(currentStep);
+
+document.getElementById("autocompletarBtn").addEventListener("click", () => {
+  const radios = document.querySelectorAll("input[type='radio']");
+  const grupos = [...new Set([...radios].map(r => r.name))];
+  grupos.forEach(name => {
+    const valor = Math.ceil(Math.random() * 5);
+    const target = document.querySelector(`input[name='${name}'][value='${valor}']`);
+    if (target) target.checked = true;
   });
-
-  document.getElementById('prevBtn').addEventListener('click', () => {
-    if (currentStep > 0) {
-      saveAnswers();
-      currentStep--;
-      showStep(currentStep);
-    }
+  document.getElementById("participantName").value = "Martina Gómez (prueba)";
+  const ejemplos = [
+    "Siempre me gustó ayudar a los demás, pero no estoy segura si eso se puede convertir en una carrera.",
+    "Me interesa mucho la tecnología aunque no tengo experiencia.",
+    "Disfruto mucho dibujar, escribir o diseñar cosas en mi tiempo libre.",
+    "A veces me cuesta organizarme, pero cuando me apasiona algo, me involucro de verdad.",
+    "No tengo muy claro qué quiero hacer, pero me gustaría algo que me permita viajar o trabajar desde cualquier lugar."
+  ];
+  const textareas = document.querySelectorAll("textarea");
+  textareas.forEach((ta, i) => {
+    ta.value = ejemplos[i % ejemplos.length];
   });
+});
 
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    saveAnswers();
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+  const formData = new FormData(form);
+  const radios = form.querySelectorAll("input[type='radio']:checked");
+  const respuestasRadio = {};
+  radios.forEach(r => respuestasRadio[r.name] = r.value);
 
-    const formData = new FormData(form);
-    const participant = formData.get("participantName") || "anonimo";
-    const date = new Date();
-    const timestamp = date.toISOString().replace(/[:T]/g, "-").split(".")[0];
-    const filename = `${participant.trim().replace(/\s+/g, "_")}_${timestamp}.md`;
+  const nombre = formData.get("participantName") || "anonimo";
+  const fecha = new Date();
+  const timestamp = fecha.toISOString().replace(/[:T]/g, "-").split(".")[0];
+  const filename = `${nombre.trim().replace(/\s+/g, "_")}_${timestamp}.md`;
 
-    const labels = [...document.querySelectorAll("label")];
-    let markdown = `# Cuestionario Vocacional\n\n**Nombre del participante:** ${participant}\n**Fecha:** ${date.toLocaleString()}\n\n`;
+  let markdown = `# Cuestionario Vocacional\n\n**Nombre del participante:** ${nombre}\n**Fecha:** ${fecha.toLocaleString()}\n`;
 
-    let sectionCounter = 1;
-    let qCounter = 1;
-    let currentSection = "";
-    for (let label of labels) {
-      if (label.getAttribute("for") === "participantName") continue;
-      const sectionTitle = label.closest(".step").querySelector("h2").textContent.trim();
-      const id = label.getAttribute("for");
-      const value = formData.get(id);
+  const pasos = document.querySelectorAll(".step");
+  pasos.forEach((step, index) => {
+    let tituloPaso = step.querySelector("h2, h3")?.textContent || `Paso ${index + 1}`;
+    markdown += `\n\n## ${index + 1}. ${tituloPaso}\n`;
 
-      if (currentSection !== sectionTitle) {
-        currentSection = sectionTitle;
-        markdown += `\n${sectionCounter}. ${currentSection}\n\n`;
-        qCounter = 1;
-        sectionCounter++;
+    const tabla = step.querySelector("table");
+    if (tabla) {
+      markdown += `- Tabla correspondiente:\n`;
+      const filas = tabla.querySelectorAll("tbody tr");
+      filas.forEach(fila => {
+        const celda = fila.querySelector("td");
+        if (!celda) return;
+        const aspecto = celda.textContent.trim();
+        const input = fila.querySelector("input[type='radio']");
+        if (!input) return;
+        const nombreCampo = input.name;
+        const valor = respuestasRadio[nombreCampo] || "No respondido";
+        markdown += `  - ${aspecto}: ${valor}\n`;
+      });
+    }
+
+    const textareas = step.querySelectorAll("textarea");
+    textareas.forEach((ta, i) => {
+      const pregunta = ta.dataset.pregunta || `Pregunta ${i + 1}`;
+      const respuesta = ta.value.trim();
+      if (respuesta) {
+        markdown += `\n### ${index + 1}.${i + 1} ${pregunta}\n- ${respuesta}\n`;
       }
-      markdown += `${sectionCounter - 1}.${qCounter} ${label.textContent.trim()}\n- ${value}\n\n`;
-      qCounter++;
-    }
-
-    const blob = new Blob([markdown], { type: 'text/markdown' });
-    const url = window.URL.createObjectURL(blob);
-
-    const link = document.createElement('a');
-    link.style.display = 'none';
-    link.href = url;
-    link.download = filename;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-
-    setTimeout(() => {
-      window.URL.revokeObjectURL(url);
-      alert("✅ ¡Tu archivo se ha descargado correctamente! Podés revisarlo en tu carpeta de descargas.");
-    }, 100);
+    });
   });
 
-  loadAnswers();
-  restoreStep();
-</script>
-
-</body>
+  const blob = new Blob([markdown], { type: "text/markdown" });
+  const url = window.URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  window.URL.revokeObjectURL(url);
+  alert("✅ ¡Archivo Markdown generado correctamente!");
+});
+</script></body>
 </html>
