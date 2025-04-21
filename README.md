@@ -1,2 +1,3 @@
-# Cuestionario Vocacional
-Versión definitiva con navegación lógica, mejoras UX/UI y descarga compatible con móviles.
+# Cuestionario Vocacional – Versión UI Refinada
+
+Incluye mejoras visuales en colores, espaciado, tipografía y botones para una experiencia más agradable.
