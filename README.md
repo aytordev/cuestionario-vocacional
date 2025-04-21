@@ -1,2 +1,2 @@
 # Cuestionario Vocacional
-Versión final responsiva con descarga Markdown compatible con móviles.
+Versión definitiva con navegación lógica, mejoras UX/UI y descarga compatible con móviles.
