@@ -1,2 +1,2 @@
 # Cuestionario Vocacional
-Formulario en HTML responsivo con descarga de respuestas en Markdown.
+Versión final responsiva con descarga Markdown compatible con móviles.
